@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public bool pausedMovement;
     public bool changedPos;
     public bool isReverse;
-    int currnetPosNumer = 0;
+    [HideInInspector]
+    public int currnetPosNumer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         float step = speed * Time.deltaTime;
         if (!changedPos)
         {
-            if (Mathf.Abs(transform.position.x - target[currnetPosNumer].position.x) <= 0.1 && Mathf.Abs(transform.position.y - target[currnetPosNumer].position.y) <= 0.1)
+            if (Mathf.Abs(transform.position.x - target[currnetPosNumer].position.x) <= 0.01)
             {
                 Debug.Log("reached");
                 pausedMovement = true;
